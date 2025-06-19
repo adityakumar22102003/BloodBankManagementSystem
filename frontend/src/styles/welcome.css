@@ -1,0 +1,155 @@
+.welcome-container {
+    position: relative;
+    background: linear-gradient(to bottom right, #e76f51, #f9c74f);
+    min-height: 100vh;
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 0;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-group {
+    margin-bottom: 40px;
+}
+
+.btn {
+    margin: 0 10px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.login-btn {
+    background-color: #fff;
+    color: #e76f51;
+}
+
+.login-btn:hover {
+    background-color: #f2f2f2;
+}
+
+.register-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.register-btn:hover {
+    background-color: #fff;
+    color: #e76f51;
+}
+
+.welcome-image {
+    max-width: 100%;
+    width: 400px;
+    margin: 40px auto;
+    display: block;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px 20px;
+    margin: 40px 0;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    align-items: center;
+}
+
+.stars svg {
+    margin-right: 3px;
+}
+
+.blogs,
+.camps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.blog-card,
+.camp-card {
+    background: #fff;
+    color: #e76f51;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.blog-card:hover,
+.camp-card:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .reviews,
+    .blogs,
+    .camps {
+        flex-direction: column;
+        align-items: center;
+    }
+}
