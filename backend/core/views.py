@@ -10,8 +10,8 @@ from rest_framework import status
 # Create your views here.
 
 class UserDetailsView(APIView):
-    def get(self, request):
-        users=UserDetails.objects.all()
+    def get(self, request,userId):
+        users=list(UserDetails.objects.filter(userId=userId))
         serializer=UserDetailsSerializer(users,many=True)
         return JsonResponse(serializer.data,safe=False)        
     
@@ -26,18 +26,18 @@ class UserDetailsView(APIView):
 
 class DonorDetailsView(APIView):
     def get(self, request):
-        donors=DonorDetails.objects.all()
+        donors=UserDetails.objects.filter(role='donor')
         serializer=DonorDetailsSerializer(donors,many=True)
         return JsonResponse(serializer.data,safe=False)
     
-    def post(self, request):
-        serializer=DonorDetailsSerializer(data=request.data)
-        if serializer.is_valid():
-            validated_data=serializer.validated_data
-            validated_data['password']=make_password(validated_data['password'])
-            donor=DonorDetails.objects.create(**validated_data)
-            return JsonResponse(serializer.data,status=status.HTTP_201_CREATED)
-        return JsonResponse(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    # def post(self, request):
+    #     serializer=DonorDetailsSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         validated_data=serializer.validated_data
+    #         validated_data['password']=make_password(validated_data['password'])
+    #         donor=DonorDetails.objects.create(**validated_data)
+    #         return JsonResponse(serializer.data,status=status.HTTP_201_CREATED)
+    #     return JsonResponse(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class UserSignupAPIView(APIView):
     def post(self, request):

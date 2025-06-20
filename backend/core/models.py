@@ -31,11 +31,11 @@ class UserDetails(models.Model):
     is_active=models.BooleanField(default=True)
     role=models.CharField(choices=role_choices,max_length=255)
     
-class DonorDetails(models.Model):
-    donerId=models.AutoField(primary_key=True)
-    userId=models.ForeignKey(UserDetails,on_delete=models.CASCADE)
-    last_donation_date=models.DateField(null=True,blank=True)
-    eligibility=models.BooleanField(default=True)
+# class DonorDetails(models.Model):
+#     donerId=models.AutoField(primary_key=True)
+#     userId=models.ForeignKey(UserDetails,on_delete=models.CASCADE)
+#     last_donation_date=models.DateField(null=True,blank=True)
+#     eligibility=models.BooleanField(default=True)
     
 class BloodInventory(models.Model):
     bloodId=models.AutoField(primary_key=True)
@@ -65,8 +65,8 @@ class BloodRequest(models.Model):
     
 class TransfusionRecord(models.Model):
     recordId=models.AutoField(primary_key=True)
-    donor=models.ForeignKey(DonorDetails,on_delete=models.CASCADE)
-    receiver=models.ForeignKey(UserDetails,on_delete=models.CASCADE)
+    # donor=models.ForeignKey(UserDetails,on_delete=models.CASCADE)
+    # receiver=models.ForeignKey(UserDetails,on_delete=models.CASCADE)
     blood_group=models.CharField(choices=blood_group_choices,max_length=255)
     quantity=models.IntegerField()
     transfusion_date=models.DateTimeField(auto_now_add=True)

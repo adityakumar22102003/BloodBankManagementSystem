@@ -10,7 +10,7 @@ class UserDetailsSerializer(serializers.ModelSerializer):
 
 class DonorDetailsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = DonorDetails
+        model = UserDetails
         fields = '__all__'  
 
 class BloodInventorySerializer(serializers.ModelSerializer):
