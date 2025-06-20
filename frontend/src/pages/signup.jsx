@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import '../styles/Signup.css';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 
 const bloodGroups = [
@@ -17,6 +18,17 @@ export default function Signup() {
     age: '',
     gender: '',
     phone: '',
+=======
+import { useNavigate } from 'react-router-dom';
+
+export default function Signup() {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    username: '', first_name: '', last_name: '', email: '', password: '',
+    phone: '', address: '', city: '', state: '', pincode: '',
+    blood_group: '', gender: '', age: '', height: '', role: ''
+>>>>>>> 5353d376ff751638047bd5632c5a630683cc1b3e
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -28,11 +40,20 @@ export default function Signup() {
 
   const handleSubmit = e => {
     e.preventDefault();
+<<<<<<< HEAD
     setError('');
     // Validation
     if (!form.name || !form.email || !form.password || !form.confirmPassword || !form.bloodGroup || !form.age || !form.gender || !form.phone) {
       setError('Please fill in all fields.');
       return;
+=======
+    try {
+      alert('Signup successful!');
+      // navigate('/login');
+    } catch (error) {
+      console.error(error);
+      alert('Signup failed.');
+>>>>>>> 5353d376ff751638047bd5632c5a630683cc1b3e
     }
     if (form.password !== form.confirmPassword) {
       setError('Passwords do not match.');
@@ -43,6 +64,7 @@ export default function Signup() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="auth-bg">
       <form className="auth-form signup-form" onSubmit={handleSubmit} aria-label="Signup form">
         <h2>Sign Up</h2>
@@ -156,6 +178,38 @@ export default function Signup() {
           Already have an account? <Link to="/login">Login</Link>
         </div>
       </form>
+=======
+    <div className="signup-wrapper">
+      <div className="signup-left">
+        <h1>BloodBank Portal</h1>
+        <p>Your contribution can save lives. Sign up to become a donor or receiver today.</p>
+        <img src="/blood-donation.jpg" alt="donate" />
+      </div>
+      <div className="signup-right">
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <h2>Create Account</h2>
+          <div className="form-grid">
+            {Object.keys(formData).map((key) => (
+              <input
+                key={key}
+                type={key === 'password' ? 'password' : key === 'email' ? 'email' : 'text'}
+                name={key}
+                placeholder={key.replace('_', ' ').toUpperCase()}
+                value={formData[key]}
+                onChange={handleChange}
+                required
+              />
+            ))}
+          </div>
+          <div className="bottom-section">
+            <button type="submit" className="signup-button">Register</button>
+            <p className="login-link" onClick={() => navigate("/login")}>
+              Already have an account? <span>Login</span>
+            </p>
+          </div>
+        </form>
+      </div>
+>>>>>>> 5353d376ff751638047bd5632c5a630683cc1b3e
     </div>
   );
 }
