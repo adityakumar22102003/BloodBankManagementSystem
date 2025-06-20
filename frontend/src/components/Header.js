@@ -8,7 +8,7 @@ const Header = () => {
             <div className="logo">🩸 BloodCare</div>
             <nav>
                 <a href="/xya">Home</a>
-                <a href="/xya">Camps</a>
+                <a href="/camps">Camps</a>
                 <a href="/xya">Blog</a>
                 <a href="/login">Login</a>
                 <a href="/signup">Register</a>

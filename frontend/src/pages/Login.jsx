@@ -1,46 +1,71 @@
 import React, { useState } from 'react';
-import '../styles/Signup.css';
+import '../styles/Login.css';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-
-export default function Signup() {
-  const [formData, setFormData] = useState({
-    username: '', first_name: '', last_name: '', email: '', password: '',
-    phone: '', address: '', city: '', state: '', pincode: '',
-    blood_group: '', gender: '', age: '', height: '', role: ''
-  });
+export default function Login() {
+  const [formData, setFormData] = useState({ email: '', password: '', remember: false });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      //await axios.post('http://localhost:8000/api/signup/', formData);
-      alert('Signup successful!');
-    } catch (error) {
-      console.error(error);
-      alert('Signup failed.');
-    }
+    toast.success('Login Successful!');
+    navigate('/');
   };
 
   return (
-    <div className="signup-container">
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h2>login</h2>
-        {Object.keys(formData).map((key) => (
+    <div className="login-wrapper">
+      <div className="login-left">
+        <h1>Welcome Back</h1>
+        <p>Login to continue saving lives with <strong>BloodBank</strong></p>
+        <img src="/blood-donation.jpg" alt="Blood Donation" />
+      </div>
+
+      <div className="login-right">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Sign In</h2>
+
           <input
-            key={key}
-            type={key === 'password' ? 'password' : key === 'email' ? 'email' : 'text'}
-            name={key}
-            placeholder={key.replace('_', ' ').toUpperCase()}
-            value={formData[key]}
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
             onChange={handleChange}
             required
           />
-        ))}
-        <button type="submit">Register</button>
-      </form>
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+
+          <div className="form-options">
+            <label>
+              <input
+                type="checkbox"
+                name="remember"
+                checked={formData.remember}
+                onChange={handleChange}
+              />
+              Remember Me
+            </label>
+            <span className="link" onClick={() => navigate("/signup")}>
+              New here? Create Account
+            </span>
+          </div>
+
+          <button type="submit" className="login-button">Login</button>
+        </form>
+      </div>
     </div>
   );
 }
