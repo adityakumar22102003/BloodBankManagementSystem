@@ -10,8 +10,8 @@ const Header = () => {
                 <a href="/xya">Home</a>
                 <a href="/xya">Camps</a>
                 <a href="/xya">Blog</a>
-                <a href="/xya">Login</a>
-                <a href="/xya">Register</a>
+                <a href="/login">Login</a>
+                <a href="/signup">Register</a>
             </nav>
         </header>
     );
