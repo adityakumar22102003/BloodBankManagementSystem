@@ -1,0 +1,99 @@
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(90deg, #c62828 60%, #ffd600 100%);
+  color: #fff;
+  padding: 3rem 2rem 2rem 2rem;
+  min-height: 80vh;
+  position: relative;
+  flex-wrap: wrap;
+  margin-top: 150rem;
+}
+.hero-content {
+  max-width: 500px;
+  z-index: 2;
+}
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.btn-primary {
+  background: #ffd600;
+  color: #c62828;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: #fff;
+  color: #c62828;
+}
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background: #fff;
+  color: #c62828;
+}
+.hero-img-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 250px;
+}
+.hero-img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  z-index: 1;
+}
+.hero-icon-animated {
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+  font-size: 3rem;
+  color: #ffd600;
+  animation: pulse 1.5s infinite;
+  z-index: 2;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .hero-img-wrapper {
+    margin-top: 2rem;
+  }
+} 

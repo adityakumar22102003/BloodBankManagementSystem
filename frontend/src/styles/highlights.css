@@ -1,0 +1,47 @@
+.highlights-section {
+  background: #f5f5f5;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.highlights-section h2 {
+  color: #c62828;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.highlight-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 2rem 1.2rem 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.highlight-card:hover, .highlight-card:focus-within {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(198,40,40,0.12);
+}
+.highlight-icon {
+  font-size: 2.5rem;
+  color: #ffd600;
+  margin-bottom: 1rem;
+}
+.highlight-card h3 {
+  color: #c62828;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.highlight-card p {
+  color: #333;
+  font-size: 1rem;
+} 

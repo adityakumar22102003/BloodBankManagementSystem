@@ -1,0 +1,120 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #c62828;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  gap: 0.5rem;
+}
+.logo-icon {
+  color: #ffd600;
+  font-size: 2rem;
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.navbar-links li a:focus, .navbar-links li a:hover {
+  background: #b71c1c;
+  outline: 2px solid #ffd600;
+}
+
+.navbar-auth {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn-login {
+  background: transparent;
+  border: 1px solid #ffd600;
+  color: #ffd600;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-login:hover, .btn-login:focus {
+  background: #ffd600;
+  color: #c62828;
+}
+.btn-register {
+  background: #ffd600;
+  color: #c62828;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-register:hover, .btn-register:focus {
+  background: #fff;
+  color: #c62828;
+}
+
+@media (max-width: 900px) {
+  .navbar-links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #c62828;
+    flex-direction: column;
+    width: 200px;
+    align-items: flex-start;
+    padding: 1rem 0.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .navbar-links.open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+} 

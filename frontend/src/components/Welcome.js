@@ -6,8 +6,12 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Welcome = () => {
+export default function Welcome (){
+
+
     const navigate = useNavigate();
+
+    
     return (
       <div className="welcome-container">
         <div className="overlay"></div>
@@ -78,4 +82,4 @@ const Welcome = () => {
     );
 };
 
-export default Welcome;
+

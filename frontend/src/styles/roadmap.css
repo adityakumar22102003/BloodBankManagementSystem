@@ -1,0 +1,67 @@
+.roadmap-section {
+  background: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.roadmap-section h2 {
+  color: #c62828;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.roadmap-stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.roadmap-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: fadeInUp 0.7s both;
+}
+.roadmap-icon {
+  background: #ffd600;
+  color: #c62828;
+  font-size: 2.2rem;
+  border-radius: 50%;
+  padding: 0.7rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+.roadmap-step:hover .roadmap-icon, .roadmap-step:focus-within .roadmap-icon {
+  transform: scale(1.15) rotate(-8deg);
+}
+.roadmap-label {
+  font-size: 1.1rem;
+  color: #c62828;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.roadmap-arrow {
+  width: 40px;
+  height: 4px;
+  background: linear-gradient(90deg, #c62828 60%, #ffd600 100%);
+  border-radius: 2px;
+  margin: 0.5rem 0;
+  align-self: center;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 900px) {
+  .roadmap-stepper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .roadmap-arrow {
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(180deg, #c62828 60%, #ffd600 100%);
+  }
+} 

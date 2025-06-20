@@ -1,45 +1,62 @@
 import React, { useState } from 'react';
-import '../styles/Signup.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import '../styles/Login.css';
+import { Link } from 'react-router-dom';
 
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
 
-export default function Signup() {
-  const [formData, setFormData] = useState({
-    username: '', first_name: '', last_name: '', email: '', password: '',
-    phone: '', address: '', city: '', state: '', pincode: '',
-    blood_group: '', gender: '', age: '', height: '', role: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    try {
-      //await axios.post('http://localhost:8000/api/signup/', formData);
-      alert('Signup successful!');
-    } catch (error) {
-      console.error(error);
-      alert('Signup failed.');
+    setError('');
+    // Add your login logic here
+    if (!email || !password) {
+      setError('Please enter both email and password.');
+      return;
     }
+    // Simulate login
+    alert('Logged in!');
   };
 
   return (
-    <div className="signup-container">
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h2>login</h2>
-        {Object.keys(formData).map((key) => (
+    <div className="auth-bg main-content">
+      <form className="auth-form login-form" onSubmit={handleSubmit} aria-label="Login form">
+        <h2>Login</h2>
+        {error && <div className="auth-error">{error}</div>}
+        <label htmlFor="login-email">Email</label>
+        <input
+          id="login-email"
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+          autoFocus
+        />
+        <label htmlFor="login-password">Password</label>
+        <div className="auth-password-wrapper">
           <input
-            key={key}
-            type={key === 'password' ? 'password' : key === 'email' ? 'email' : 'text'}
-            name={key}
-            placeholder={key.replace('_', ' ').toUpperCase()}
-            value={formData[key]}
-            onChange={handleChange}
+            id="login-password"
+            type={showPassword ? 'text' : 'password'}
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             required
           />
-        ))}
-        <button type="submit">Register</button>
+          <button
+            type="button"
+            className="auth-show-password"
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
+            onClick={() => setShowPassword(s => !s)}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </button>
+        </div>
+        <button className="btn btn-primary" type="submit">Login</button>
+        <div className="auth-link">
+          Don&apos;t have an account? <Link to="/signup">Sign up</Link>
+        </div>
       </form>
     </div>
   );
